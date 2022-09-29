@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import classes from "./Form.module.css";
 
-const Form = () => {
+const Form = (props) => {
   const nameInputRef = useRef();
   const descriptionInputRef = useRef();
   const dateInputRef = useRef();
@@ -16,7 +16,7 @@ const Form = () => {
       releaseDate: movieDate,
       openingText: movieDescription,
     };
-    console.log(NewMovieObj);
+    props.onAddMovie(NewMovieObj);
   };
   return (
     <form onSubmit={addMovieHandler}>

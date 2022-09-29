@@ -18,3 +18,6 @@
   margin: 0;
   font-size: 1rem;
 }
+.deleteButton {
+  border: 1px solid yellow;
+}
