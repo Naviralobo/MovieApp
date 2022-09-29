@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 
 import MoviesList from "./components/MoviesList";
+import Form from "./components/Form";
 import "./App.css";
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
   }, []);
   useEffect(() => {
     fetchMoviesHandler();
-  }, [fetchMoviesHandler]);
+  }, []);
 
   useEffect(() => {
     if (retry === true) {
@@ -46,7 +47,7 @@ function App() {
       clearInterval(id);
     }
     return () => clearInterval(id);
-  }, [retry]);
+  }, [retry, fetchMoviesHandler]);
 
   let content = <p>found no movies..</p>;
 
@@ -69,6 +70,9 @@ function App() {
 
   return (
     <React.Fragment>
+      <section>
+        <Form />
+      </section>
       <section>
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
